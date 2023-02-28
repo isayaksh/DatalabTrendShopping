@@ -1,5 +1,6 @@
 package me.isayaksh.DatalabTrendShopping.service;
 
+import lombok.extern.slf4j.Slf4j;
 import me.isayaksh.DatalabTrendShopping.entity.Request;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 @Service
+@Slf4j
 public class CategoriesTrendService extends TrendService {
 
     public CategoriesTrendService(@Value("${client-id}") String clientId, @Value("${client-secret}") String clientSecret) {
@@ -14,15 +16,9 @@ public class CategoriesTrendService extends TrendService {
     }
 
     @Override
-    public String trendSearch(Request request) {
-//        String apiUrl = "https://openapi.naver.com/v1/datalab/shopping/categories";
-        String apiUrl = "https://openapi.naver.com/v1/datalab/shopping";
-        apiUrl += "/category/device";
-
+    public String trendSearch(Object request, String apiUrl) {
         Map<String, String> requestHeaders = getRequestHeaders();
-
         String requestBody = convertString(request);
-
         return post(apiUrl, requestHeaders, requestBody);
     }
 

@@ -1,11 +1,9 @@
 package me.isayaksh.DatalabTrendShopping.entity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.isayaksh.DatalabTrendShopping.entity.embed.Category;
 import me.isayaksh.DatalabTrendShopping.service.CategoriesTrendService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -13,15 +13,13 @@ import java.util.List;
 
 @Data
 @Builder
-@AllArgsConstructor @NoArgsConstructor
-public class Request {
+@AllArgsConstructor
+@NoArgsConstructor
+public class CategoriesRequest {
     private String startDate;
     private String endDate;
     private TimeUnit timeUnit;
-    private List<Category> categories = new ArrayList<>();
-    private String category;
-    private List<Keyword> keywords = new ArrayList<>();
-    private String keyword;
+    private List<Category> category = new ArrayList<>();
     private Device device;
     private Gender gender;
     private List<String> ages = new ArrayList<>();

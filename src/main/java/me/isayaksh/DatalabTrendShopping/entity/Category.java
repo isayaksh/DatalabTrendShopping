@@ -1,12 +1,14 @@
-package me.isayaksh.DatalabTrendShopping.entity.embed;
+package me.isayaksh.DatalabTrendShopping.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor @NoArgsConstructor
 public class Category {
     private String name;
-    private String param;
+    private List<String> param;
 }

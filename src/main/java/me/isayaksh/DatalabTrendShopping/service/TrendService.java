@@ -27,7 +27,7 @@ public abstract class TrendService {
         this.objectMapper = new ObjectMapper();
     }
 
-    public abstract String trendSearch(Request request);
+    public abstract String trendSearch(Object request, String apiUrl);
 
 
     public static String post(String apiUrl, Map<String, String> requestHeaders, String requestBody) {
@@ -87,7 +87,7 @@ public abstract class TrendService {
     }
 
 
-    public String convertString(Request request) {
+    public String convertString(Object request) {
         try {
             return objectMapper.writeValueAsString(request);
         } catch (JsonProcessingException e) {
