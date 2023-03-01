@@ -2,7 +2,6 @@ package me.isayaksh.DatalabTrendShopping.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.isayaksh.DatalabTrendShopping.entity.Request;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

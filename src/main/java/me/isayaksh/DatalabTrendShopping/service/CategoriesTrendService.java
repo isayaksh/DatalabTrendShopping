@@ -1,7 +1,6 @@
 package me.isayaksh.DatalabTrendShopping.service;
 
 import lombok.extern.slf4j.Slf4j;
-import me.isayaksh.DatalabTrendShopping.entity.Request;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
