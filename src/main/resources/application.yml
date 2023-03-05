@@ -1,7 +1,8 @@
 spring:
+  jackson:
+    default-property-inclusion: non_null # JSON NON_NULL
   profiles:
     include: secret
   mvc:
-    # Swagger: Spring boot 2.6 ?? ?? ??? ??
     pathmatch:
-      matching-strategy: ant_path_matcher
+      matching-strategy: ant_path_matcher # Swagger

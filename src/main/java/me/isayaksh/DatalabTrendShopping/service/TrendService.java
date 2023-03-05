@@ -2,6 +2,7 @@ package me.isayaksh.DatalabTrendShopping.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import me.isayaksh.DatalabTrendShopping.entity.response.Response;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public abstract class TrendService {
+public class TrendService {
 
     private final String clientId;
     private final String clientSecret;
@@ -26,8 +27,14 @@ public abstract class TrendService {
         this.objectMapper = new ObjectMapper();
     }
 
-    public abstract String trendSearch(Object request, String apiUrl);
-
+    public Response trendSearch(String requestBody, String apiUrl){
+        String content = post(apiUrl, getRequestHeaders(), requestBody);
+        try {
+            return objectMapper.readValue(content, Response.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static String post(String apiUrl, Map<String, String> requestHeaders, String requestBody) {
         HttpURLConnection con = connect(apiUrl);
@@ -82,15 +89,6 @@ public abstract class TrendService {
             return responseBody.toString();
         } catch (IOException e) {
             throw new RuntimeException("API 응답을 읽는데 실패했습니다.", e);
-        }
-    }
-
-
-    public String convertString(Object request) {
-        try {
-            return objectMapper.writeValueAsString(request);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
         }
     }
 

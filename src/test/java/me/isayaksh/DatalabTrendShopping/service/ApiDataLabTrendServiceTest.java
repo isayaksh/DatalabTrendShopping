@@ -1,5 +1,7 @@
 package me.isayaksh.DatalabTrendShopping.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import me.isayaksh.DatalabTrendShopping.entity.response.Response;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,10 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ApiDataLabTrendServiceTest {
 
     @Autowired
-    CategoriesTrendService service;
+    TrendService service;
+    ObjectMapper objectMapper = new ObjectMapper();
 
-    @Test
-    public void getClientIdAndSecret() throws Exception {
-
-    }
 }

@@ -3,7 +3,7 @@ package me.isayaksh.DatalabTrendShopping.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.isayaksh.DatalabTrendShopping.entity.request.*;
+import me.isayaksh.DatalabTrendShopping.entity.response.Response;
 import me.isayaksh.DatalabTrendShopping.service.TrendService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,28 +18,27 @@ public class ApiDataLapTrendController {
 
     @Operation(summary = "categories", description = "NAVER API : categories")
     @PostMapping("/categories")
-    public String trendSearchByCategories(@RequestBody(required = false) CategoriesRequest request) {
-        log.info("request : {}", request);
-        return trendService.trendSearch(request, apiUrl + "/categories");
+    public Response trendSearchByCategories(@RequestBody(required = false) String requestBody) {
+        return trendService.trendSearch(requestBody, apiUrl + "/categories");
     }
 
     @Operation(summary = "category", description = "NAVER API : category")
     @PostMapping("/category/{type}")
-    public String trendSearchByCategory(@PathVariable("type") String type,
-                                        @RequestBody CategoryRequest request) {
-        return trendService.trendSearch(request, apiUrl + "/category/" + type);
+    public Response trendSearchByCategory(@PathVariable("type") String type,
+                                        @RequestBody String requestBody) {
+        return trendService.trendSearch(requestBody, apiUrl + "/category/" + type);
     }
 
     @Operation(summary = "keywords", description = "NAVER API : keywords")
     @PostMapping("/category/keywords")
-    public String trendSearchByKeywords(@RequestBody KeywordsRequest request) {
-        return trendService.trendSearch(request, apiUrl + "/category/keywords");
+    public Response trendSearchByKeywords(@RequestBody String requestBody) {
+        return trendService.trendSearch(requestBody, apiUrl + "/category/keywords");
     }
 
     @Operation(summary = "keyword", description = "NAVER API : keyword")
     @PostMapping("/category/keyword/{type}")
-    public String trendSearchByKeyword(@PathVariable("type") String type,
-                                        @RequestBody KeywordRequest request) {
-        return trendService.trendSearch(request, apiUrl + "/category/keyword/" + type);
+    public Response trendSearchByKeyword(@PathVariable("type") String type,
+                                        @RequestBody String requestBody) {
+        return trendService.trendSearch(requestBody, apiUrl + "/category/keyword/" + type);
     }
 }
