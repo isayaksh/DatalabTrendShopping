@@ -36,6 +36,21 @@ public class TrendService {
         }
     }
 
+    public Response trendSearch(Object request, String apiUrl){
+        String requestBody = null;
+        try {
+            requestBody = objectMapper.writeValueAsString(request);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        String content = post(apiUrl, getRequestHeaders(), requestBody);
+        try {
+            return objectMapper.readValue(content, Response.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static String post(String apiUrl, Map<String, String> requestHeaders, String requestBody) {
         HttpURLConnection con = connect(apiUrl);
 
